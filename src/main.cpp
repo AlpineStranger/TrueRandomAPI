@@ -3,8 +3,13 @@
 #include <WebServer.h>
 #include <ArduinoJson.h>
 #include <SafeQueue.cpp>
-#include <FreeRTOS.h>
+#include <FreeRTOS.h> //needed to use both cores on ESP32
 #include <wifi_secrets.h>
+// create a file wifi_secrets.h in ../include
+// file should contain 2 lines
+// const char *SSID = "Your WiFi name here";
+// const char *PWD = "Your Wifi password here";
+
 
 #define MAX_RANDOM_LIMIT 65535
 
