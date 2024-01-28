@@ -96,7 +96,7 @@ See [this](usage/call_service.ipynb) Jupyter Notebook for an example of how to c
 
 Some thoughts:
 - Slow generation. But you should be worried if the generation is quick - as that will imply you're in a high radiation environment :-)
-- The default implementation of _queue_ in C++ is not thread-safe. As we have both cores accessing the queue, had to add a customised thread safety to it.
-- If you like incessant clicking then remove the jumper J1 on the GM detector - this disconnects the speaker. This also reduces the power consumption.
+- The default implementation of _queue_ in C++ is not thread-safe. As we have both cores accessing the queue, had to implement a custom thread safe version of it.
+- If you don't like incessant clicking then remove the jumper J1 on the GM detector - this disconnects the speaker. This also reduces the power consumption.
 
 
