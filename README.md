@@ -65,7 +65,7 @@ The 3 connections between the ESP32 and the Geiger-Muller (GM) detecter board th
 
 
 The ESP32 controller has two cores.
-Core 1:
+Core 1:  
 
 
 Core 1 will set up an interrupt on pin 13 (the pin connected to the GM detector) and start counting from 0 to 35565, resetting back to 0 if it goes over.
