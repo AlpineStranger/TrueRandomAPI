@@ -29,11 +29,11 @@ We will use a Geiger-Muller counter. Yes, the same clicky things from the movies
  
  
 The only thing to ensure is that the board is the same as below: __RadiationD-v1.1(CAJOE)__
-![Board image](GM_board.jpg)
+![Board image](readme_files/GM_board.jpg)
 
 If you want, you can replace the Chinese J tube with a Russian SBM-20 tube if you will use this to work as a radiation detector. [Tube comparisons](https://sites.google.com/site/diygeigercounter/technical/gm-tubes-supported) can be consulted for a better fit. Below is a chart of characteristics of the J tubes that usually come in the package.
 
-![J tube characteristics](J_tubes.jpeg)
+![J tube characteristics](readme_files/J_tubes.jpeg)
 
 How a Geiger-Muller detector works is pretty clever - explanation [on Wikipedia](https://en.wikipedia.org/wiki/Geiger_counter)
 
@@ -54,11 +54,11 @@ The 3 connections between the ESP32 and the Geiger-Muller (GM) detecter board th
 
 1. ESP +5v to GM P3 5v pin (we will run the detector from the USB plugged into the ESP32, so it's a single-wire system)
 1. ESP GND to GM P3 GND (common ground; this is needed even if you power the boards separately).
-1. ESP pin 13 (configured in [main.cpp](src/main.cpp)) to GM P3 Vin pin
+1. ESP pin 13 (configured in [main.cpp](/ESP32_firmware/src/main.cpp)) to GM P3 Vin pin
 
 
 
-![ESP32 connections](ESP32DEV.jpg)
+![ESP32 connections](readme_files/ESP32DEV.jpg)
 
 
 ### How does the ESP32 work with the detector?
@@ -85,9 +85,18 @@ If it receives a request for a random number, it will pop the first number in th
 Optionally, the random number request can specify the _"max"_ (instead of the default max of 65535). The program then converts the saved random number (0-65535) to the requested range (0-_"max"_) and sends it through.  
 While doing so, to retain the entropy of the original number, it discards the number it picks from the queue that is greater than the largest integral multiple of _"max"_ which is less than 65535.
 
+### Final product
+Looks a bit like this:
+![Final item](readme_files/Final1.JPEG)
+![Final item](readme_files/Final2.JPEG)
+
+A single usb cable powers both the microcontroller and the GM detector.
+
 See [this](usage/call_service.ipynb) Jupyter Notebook for an example of how to call this API.
 
-Some weaknesses:
+Some thoughts:
 - Slow generation. But you should be worried if the generation is quick - as that will imply you're in a high radiation environment :-)
+- The default implementation of _queue_ in C++ is not thread-safe. As we have both cores accessing the queue, had to add a customised thread safety to it.
+- If you like incessant clicking then remove the jumper J1 on the GM detector - this disconnects the speaker. This also reduces the power consumption.
 
 
