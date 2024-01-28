@@ -5,3 +5,4 @@
 .vscode/ipch
 include/wifi_secrets.h
 .vscode/*
+compile_commands.json

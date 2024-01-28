@@ -3,7 +3,7 @@
 #include <WebServer.h>
 #include <ArduinoJson.h>
 #include <SafeQueue.cpp>
-#include <FreeRTOS.h> //needed to use both cores on ESP32
+#include <freertos/FreeRTOS.h> //needed to use both cores on ESP32
 #include <wifi_secrets.h>
 // create a file wifi_secrets.h in ../include
 // file should contain 2 lines
@@ -141,7 +141,9 @@ void fillQueue(void*){
       } //if not reset return back
       unsigned short int randomInt = 0 //reset counter
       
-      interrupts(); //enable interrupts
+      // interrupts(); //enable interrupts
+      XTOS_SET_INTLEVEL(XCHAL_EXCM_LEVEL); portbenchmarkINTERRUPT_DISABLE();
+
       attachInterrupt(digitalPinToInterrupt(GM_pin), GM_ping, FALLING); //Call GM_ping on falling edge
       while(not(detected)){
         randomInt++; //run counter until GM hit
@@ -153,7 +155,8 @@ void fillQueue(void*){
         
       }
       detachInterrupt(digitalPinToInterrupt(GM_pin));
-      noInterrupts(); //disable interrupts
+      // noInterrupts(); //disable interrupts
+      portbenchmarkINTERRUPT_RESTORE(0); XTOS_SET_INTLEVEL(0);
       queueRandoms.enqueue(randomInt);
       detected = false;
     }
