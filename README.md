@@ -64,7 +64,7 @@ The 3 connections between the ESP32 and the Geiger-Muller (GM) detecter board th
 ### How does the ESP32 work with the detector?
 
 
-The ESP32 controller has two cores.
+The ESP32 controller has two cores.  
 Core 1:  
 
 
