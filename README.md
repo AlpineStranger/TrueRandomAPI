@@ -14,7 +14,7 @@ In this project, I use the entropy in the background radioactivity to generate t
 
 
 There are both terrestrial and extraterrestrial sources of it.
-Low, naturally occurring ores of potassium-40, uranium-238, and thorium-232 form most of the terrestrial sources. Plus radon-222, which is a gas that naturally emanates from the ground - various obviously by location, ventilation, and season.
+Low, naturally occurring ores of potassium-40, uranium-238, and thorium-232 form most of the terrestrial sources. Plus radon-222, which is a gas that naturally emanates from the ground - varies obviously by location, ventilation, and season.
 
 
 Extraterrestial sources are primarily from cosmic rays, which are high-energy photons. When they slam into atomic neuclei in the upper atmosphere, they set off a shower of sub-atomic pions, which then decay into muons. 10,000 of them, on average roughly per square metre per minute, travelling at nearly the speed of light.
@@ -64,8 +64,8 @@ The 3 connections between the ESP32 and the Geiger-Muller (GM) detecter board th
 ### How does the ESP32 work with the detector?
 
 
-The ESP32 controller has two cores.
-Core 1:
+The ESP32 controller has two cores.  
+Core 1:  
 
 
 Core 1 will set up an interrupt on pin 13 (the pin connected to the GM detector) and start counting from 0 to 35565, resetting back to 0 if it goes over.
