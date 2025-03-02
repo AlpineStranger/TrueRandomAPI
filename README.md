@@ -10,7 +10,7 @@ In this project, I use the entropy in the background radioactivity to generate t
 ### What is background radiation?
 
 
-[Wikipedia defines](https://en.wikipedia.org/wiki/Background_radiation) background radiation as the level of ionising radiation present in the environment at a particular location that is not due to the deliberate introduction of radiation sources.
+[Wikipedia defines](https://en.wikipedia.org/wiki/Background_radiation) background radiation is the level of ionising radiation present in the environment at a particular location that is not due to the deliberate introduction of radiation sources.
 
 
 There are both terrestrial and extraterrestrial sources of it.
@@ -21,7 +21,7 @@ Extraterrestial sources are primarily from cosmic rays, which are high-energy ph
 
 
 ### So how is this random?
-Even though the decay of a large number of atoms can be predicted by it's half life, the decay of a single ratioactive atom is guaranteed to be unpredictable by the laws of quantum physics.
+Even though the decay of a large number of atoms can be predicted by it's half life, the exact time of decay of a single ratioactive atom is guaranteed to be unpredictable by the laws of quantum physics.
 
 
 ### How to detect this?
